@@ -1,0 +1,65 @@
+{
+  "name": "nexus-ai-chat",
+  "displayName": "Nexus AI Chat",
+  "description": "AI chatbot powered by Gemini",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "nexus-ai-chat.openChat",
+        "title": "Open AI Chat",
+        "category": "Nexus AI"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nexus-ai",
+          "title": "Nexus AI",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "nexus-ai": [
+        {
+          "id": "nexusAiChat",
+          "name": "AI Chat",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Nexus AI Chat",
+      "properties": {
+        "nexusAiChat.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Gemini API key"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/node-fetch": "^2.6.12",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
